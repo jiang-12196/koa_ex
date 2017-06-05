@@ -1,5 +1,6 @@
 const Koa = require('koa');
 const fs = require('fs');
+const logger = require('koa-logger');
 const app = new Koa();
 
 function render(page) {
@@ -70,6 +71,7 @@ async function getData() {
     console.log(data)
 }
 
+app.use(logger());
 
 app.listen(3000, ()=> {
     console.log('the server is starting at port 3000');
